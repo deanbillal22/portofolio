@@ -1,0 +1,1080 @@
+/* ========== Reset & Variabel Desain ========== */
+:root {
+  --brand: #C84B00;
+  --brand-hover: #A53D00;
+  --brand-tint: rgba(200, 75, 0, 0.08);
+  --bg: #FFFFFF;
+  --bg-alt: #FAF8F5;
+  --ink: #181412;
+  --ink-muted: #5A514C;
+  --border: #E8DFD8;
+  --radius-xl: 24px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --shadow-sm: 0 4px 16px rgba(24, 20, 18, 0.04);
+  --shadow-md: 0 14px 34px rgba(24, 20, 18, 0.07);
+  --font-display: 'Anton', Impact, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 68px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1, h2, h3, h4, p, ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 40px);
+}
+
+/* ========== Navigasi Rata Tengah ========== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-inner a {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.nav-inner a:hover,
+.nav-inner a.active {
+  color: var(--brand);
+  background: var(--brand-tint);
+}
+
+/* ========== Tombol & Elemen Umum ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+  border: 2px solid var(--brand);
+}
+
+.btn-primary:hover {
+  background: var(--brand-hover);
+  border-color: var(--brand-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--ink);
+  border: 1.5px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.btn-white {
+  background: #fff;
+  color: var(--brand);
+  border: 2px solid #fff;
+}
+
+.btn-white:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--brand);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.sec {
+  padding-block: clamp(72px, 9vw, 112px);
+}
+
+.sec.alt {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.sec-head {
+  margin-bottom: clamp(36px, 5vw, 52px);
+}
+
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5.5vw, 60px);
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.sec-lead {
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--ink-muted);
+  text-align: left;
+}
+
+/* ========== 1. Hero / Beranda ========== */
+.hero {
+  padding-block: clamp(48px, 7vw, 88px);
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(36px, 6vw, 72px);
+  align-items: center;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+.status-pill:hover {
+  border-color: var(--brand);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.status-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16A34A;
+}
+
+.hero-kicker {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brand);
+  margin-bottom: 10px;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(54px, 7.5vw, 94px);
+  line-height: 0.96;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+
+.hero-name span {
+  color: var(--brand);
+}
+
+.hero-desc {
+  font-size: 16px;
+  color: var(--ink-muted);
+  max-width: 54ch;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.hero-meta a:hover {
+  color: var(--brand);
+}
+
+/* Bingkai Foto Profil Utama (Interaktif) */
+.hero-photo-card {
+  width: 100%;
+  max-width: 390px;
+  margin-inline: auto;
+  aspect-ratio: 4 / 4.6;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.35s ease;
+}
+
+.hero-photo-card img {
+  object-fit: cover;
+  object-position: 50% 10%;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(200, 75, 0, 0.2);
+  border-color: rgba(200, 75, 0, 0.4);
+}
+
+.hero-photo-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ========== 2. Tentang Saya ========== */
+.about-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(36px, 6vw, 72px);
+  align-items: center;
+}
+
+.about-photo-frame {
+  width: 100%;
+  max-width: 380px;
+  margin-inline: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--brand);
+  box-shadow: var(--shadow-md);
+  transition: all 0.35s ease;
+}
+
+.about-photo-frame img {
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-photo-frame:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(200, 75, 0, 0.2);
+  border-color: rgba(200, 75, 0, 0.4);
+}
+
+.about-photo-frame:hover img {
+  transform: scale(1.04);
+}
+
+.about-text .sec-title {
+  font-size: clamp(32px, 4.2vw, 48px);
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  color: var(--ink-muted);
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.focus-area {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.focus-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-cloud span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand);
+  background: var(--brand-tint);
+  border: 1px solid rgba(200, 75, 0, 0.2);
+  padding: 5px 14px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.tag-cloud span:hover {
+  background: var(--brand);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ========== Grid Umum & Kartu (Pendidikan tetap standar) ========== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.5vw, 24px);
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.pill-year {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand);
+  background: var(--brand-tint);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.score-badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.card-sub {
+  font-size: 15px;
+  color: var(--ink-muted);
+}
+
+/* ========== 4. Organisasi & Kepanitiaan (Box Interaktif) ========== */
+.org-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.org-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(24, 20, 18, 0.09);
+  border-color: rgba(200, 75, 0, 0.35);
+}
+
+.org-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #eee;
+}
+
+.org-body {
+  padding: 28px;
+  flex: 1;
+}
+
+.org-body .pill-year {
+  margin-bottom: 12px;
+}
+
+.org-inst {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand);
+  margin-bottom: 14px;
+}
+
+.bullet-list {
+  padding-left: 18px;
+  list-style: disc;
+  color: var(--ink-muted);
+  font-size: 14px;
+  display: grid;
+  gap: 8px;
+  text-align: left;
+}
+
+.sub-block {
+  margin-top: 56px;
+}
+
+.sub-heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.mini-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.mini-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(200, 75, 0, 0.4);
+}
+
+.mini-date {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 6px;
+}
+
+.mini-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.mini-role {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.mini-org {
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
+/* ========== 5. Keahlian (Box Interaktif) ========== */
+.skill-box {
+  border-radius: var(--radius-xl);
+  padding: clamp(28px, 4vw, 38px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(24, 20, 18, 0.08);
+}
+
+.accent-box {
+  background: var(--brand);
+  color: #fff;
+}
+
+.accent-box:hover {
+  box-shadow: 0 16px 32px rgba(200, 75, 0, 0.25);
+}
+
+.light-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+
+.skill-box h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.skill-box p {
+  font-size: 14px;
+  opacity: 0.88;
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.light-box p {
+  color: var(--ink-muted);
+}
+
+.skill-items {
+  display: grid;
+  gap: 10px;
+  padding-left: 18px;
+  list-style: disc;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.tools-row {
+  margin-top: 32px;
+}
+
+.tool-group {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.tool-group h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+
+/* ========== 6. Proyek (Galeri Foto Proyek Standar/Sesuai Permintaan) ========== */
+.project-stack {
+  display: grid;
+  gap: 40px;
+}
+
+.project-row {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: clamp(20px, 3vw, 32px);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(24px, 4vw, 44px);
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.project-row:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(200, 75, 0, 0.3);
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.shot {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #f5f5f5;
+  cursor: zoom-in;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.shot:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand);
+}
+
+.proj-num {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--brand);
+  margin-bottom: 8px;
+}
+
+.project-detail h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.proj-meta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  margin-bottom: 14px;
+}
+
+.proj-desc {
+  font-size: 15px;
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* ========== 7. Sertifikasi (Foto & Box Interaktif) ========== */
+.cert-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(32px, 5vw, 60px);
+  align-items: start;
+}
+
+.cert-side {
+  position: sticky;
+  top: 84px;
+}
+
+.cert-side .sec-title {
+  margin-bottom: 24px;
+}
+
+.cert-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.35s ease;
+}
+
+.cert-photo img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cert-photo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(200, 75, 0, 0.18);
+  border-color: rgba(200, 75, 0, 0.4);
+}
+
+.cert-photo:hover img {
+  transform: scale(1.04);
+}
+
+.cert-items {
+  display: grid;
+  gap: 16px;
+}
+
+.cert-item {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  transition: all 0.3s ease;
+}
+
+.cert-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+  border-color: rgba(200, 75, 0, 0.3);
+}
+
+.highlight-cert {
+  border-left: 4px solid var(--brand);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.cert-time {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 6px;
+}
+
+.cert-item h3 {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.cert-item p {
+  font-size: 14px;
+  color: var(--ink-muted);
+  text-align: left;
+}
+
+/* ========== 8. Footer & Kontak (Foto & Box Kontak Interaktif) ========== */
+.footer {
+  background: var(--brand);
+  color: #fff;
+  padding-block: clamp(64px, 8vw, 96px) 32px;
+}
+
+.footer-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.footer-kicker {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+.footer-heading {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6.5vw, 76px);
+  line-height: 1.02;
+  margin-bottom: 18px;
+}
+
+.footer-lead {
+  font-size: 15px;
+  opacity: 0.92;
+  max-width: 52ch;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  transition: all 0.25s ease;
+}
+
+.contact-card:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.c-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.82;
+  margin-bottom: 4px;
+}
+
+.c-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.c-row a {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  text-underline-offset: 3px;
+  word-break: break-all;
+}
+
+.c-row a:hover {
+  text-decoration: underline;
+}
+
+.copy-btn {
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: transparent;
+  border: 1.5px solid #fff;
+  border-radius: 999px;
+  padding: 2px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: #fff;
+  color: var(--brand);
+}
+
+.footer-photo {
+  width: 100%;
+  max-width: 340px;
+  margin-inline: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  transition: all 0.35s ease;
+}
+
+.footer-photo img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-photo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.footer-photo:hover img {
+  transform: scale(1.04);
+}
+
+.footer-bar {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.footer-bar a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Lightbox Modal ========== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(24, 20, 18, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox img {
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.lightbox p {
+  color: #fff;
+  margin-top: 14px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.lb-close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 38px;
+  cursor: pointer;
+}
+
+/* ========== Responsif Tablet & Mobile ========== */
+@media (max-width: 900px) {
+  .hero-layout,
+  .about-layout,
+  .project-row,
+  .cert-layout,
+  .footer-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-photo-card {
+    max-width: 320px;
+  }
+
+  .about-photo-frame {
+    max-width: 320px;
+  }
+
+  .cert-side {
+    position: static;
+  }
+
+  .footer-photo {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 680px) {
+  .grid-2,
+  .grid-3,
+  .contact-grid,
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-inner {
+    justify-content: flex-start;
+  }
+}
+
+/* Pengaturan Teks Paragraf */
+.about-text p, .proj-desc, .footer-lead {
+  text-align: left;
+}
+
+@media (min-width: 900px) {
+  .about-text p, .proj-desc, .footer-lead {
+    text-align: justify;
+  }
+}
+
+/* Styling untuk tombol Kembali ke Atas di bawah foto */
+.footer-back-to-top {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.btn-back-top {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.btn-back-top:hover {
+  background: #fff;
+  color: var(--brand);
+}
+
+/* Mengatur teks © 2026 agar berada persis di tengah */
+.footer-bar.center-bar {
+  justify-content: center;
+  text-align: center;
+}
