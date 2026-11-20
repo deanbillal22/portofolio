@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dokumentasi IMM - Deani Billal</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .gallery-page {
+      padding: 40px 20px;
+      background-color: #fafafa;
+      min-height: 100vh;
+    }
+    .gallery-container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .gallery-card {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+    .gallery-caption {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    /* Overlay Layar Penuh (Lightbox) */
+    .gal-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 9999;
+    }
+    .gal-lightbox.active {
+      display: flex;
+    }
+    .gal-lightbox img {
+      max-width: 92vw;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+    }
+    .gal-lightbox-caption {
+      margin-top: 14px;
+      color: #ffffff;
+      font-size: 1rem;
+      text-align: center;
+      max-width: 720px;
+    }
+    .gal-lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .gal-lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+  </style>
+</head>
+<body class="gallery-page">
+  <div class="gallery-container">
+    <a href="index.html#organisasi" class="btn btn-secondary" style="margin-bottom: 20px; display: inline-block;">&larr; Kembali ke Portofolio</a>
+    <h1 style="font-size: 2rem; margin-bottom: 8px; color: #C84B00;">Dokumentasi Kegiatan IMM</h1>
+    <p style="margin-bottom: 28px; color: #555;">Klik pada foto untuk melihat tampilan layar penuh.</p>
+
+    <!-- Grid Foto Dokumentasi IMM -->
+    <div class="gallery-grid">
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 1">
+        <img src="images/imm/foto1.jpg" alt="IMM 1">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 2">
+        <img src="images/imm/foto2.jpg" alt="IMM 2">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 3">
+        <img src="images/imm/foto3.jpg" alt="IMM 3">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 4">
+        <img src="images/imm/foto4.jpg" alt="IMM 4">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 5">
+        <img src="images/imm/foto5.jpg" alt="IMM 5">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 6">
+        <img src="images/imm/foto6.jpg" alt="IMM 6">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 7">
+        <img src="images/imm/foto7.jpg" alt="IMM 7">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 8">
+        <img src="images/imm/foto8.jpg" alt="IMM 8">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 9">
+        <img src="images/imm/foto9.jpg" alt="IMM 9">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 10">
+        <img src="images/imm/foto10.jpg" alt="IMM 10">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 11">
+        <img src="images/imm/foto11.jpg" alt="IMM 11">
+      </div>
+
+      <div class="gallery-card" data-caption="Dokumentasi — IMM 12">
+        <img src="images/imm/foto12.jpg" alt="IMM 12">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tampilan Layar Penuh -->
+  <div class="gal-lightbox" id="galLightbox" aria-hidden="true" role="dialog">
+    <button type="button" class="gal-lightbox-close" id="galLightboxClose" aria-label="Tutup tampilan penuh">&times;</button>
+    <img id="galLightboxImg" src="" alt="">
+    <p class="gal-lightbox-caption" id="galLightboxCaption"></p>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.gallery-card');
+    const lightbox = document.getElementById('galLightbox');
+    const lightboxImg = document.getElementById('galLightboxImg');
+    const lightboxCaption = document.getElementById('galLightboxCaption');
+    const closeBtn = document.getElementById('galLightboxClose');
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const img = card.querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = card.dataset.caption || img.alt;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImg.src = '';
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
